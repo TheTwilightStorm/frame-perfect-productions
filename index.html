@@ -66,59 +66,87 @@
     <section id="booking" class="booking">
         <div class="container">
             <h2 class="section-title">Book Your Session</h2>
-            <div class="booking-container">
-                <!-- Calendar Column -->
-                <div class="calendar-column">
-                    <div class="calendar-placeholder">
-                        <iframe src="about:blank" class="calendar-iframe" title="Calendar Placeholder"></iframe>
-                        <div class="calendar-overlay">
-                            <p>Calendar Integration</p>
-                            <span>Connect your scheduling service here</span>
-                        </div>
-                    </div>
+            <div class="booking-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'consult')">Consultation</button>
+                <button class="tab-link" onclick="openTab(event, 'standup')">Stand-Up Comedy</button>
+                <button class="tab-link" onclick="openTab(event, 'esports')">Esports Production</button>
+            </div>
+
+            <!-- Consultation Tab Content -->
+            <div id="consult" class="tab-content" style="display: block;">
+                <div class="desktop-view">
+                    <iframe
+                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Wg_NdhDQw-TOh3TIE5ek_S8wMV3dl-uh6MrQrqTsjf2TKzZH7fiQ5-tbD-b0sqqxSm4tbiQnW?gv=true"
+                        style="border: 0" width="100%" height="600" frameborder="0"></iframe>
                 </div>
+                <div class="mobile-view">
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Wg_NdhDQw-TOh3TIE5ek_S8wMV3dl-uh6MrQrqTsjf2TKzZH7fiQ5-tbD-b0sqqxSm4tbiQnW?gv=true',
+                                    color: '#8E24AA',
+                                    label: 'Book an appointment',
+                                    target,
+                                });
+                            });
+                        })();
+                    </script>
+                </div>
+            </div>
 
-                <!-- Form Column -->
-                <div class="form-column">
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
+            <!-- Stand-Up Tab Content -->
+            <div id="standup" class="tab-content">
+                <div class="desktop-view">
+                    <iframe
+                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0v4XLHBEBkyCzB0lWtMtcNAUIezQSZgQ4qEwmQ0oeOTnbOXdpo7MMnm3NFhaUEXPq4K2usYFZ8?gv=true"
+                        style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                </div>
+                <div class="mobile-view">
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0v4XLHBEBkyCzB0lWtMtcNAUIezQSZgQ4qEwmQ0oeOTnbOXdpo7MMnm3NFhaUEXPq4K2usYFZ8?gv=true',
+                                    color: '#8E24AA',
+                                    label: 'Book an appointment',
+                                    target,
+                                });
+                            });
+                        })();
+                    </script>
+                </div>
+            </div>
 
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Service Type *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="wedding">Wedding Videography</option>
-                                <option value="corporate">Corporate Events</option>
-                                <option value="commercial">Commercial Production</option>
-                                <option value="personal">Personal Projects</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date">Preferred Date</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Additional Details</label>
-                            <textarea id="message" name="message" rows="5"></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-button">Submit Request</button>
-                    </form>
+            <!-- Esports Tab Content -->
+            <div id="esports" class="tab-content">
+                <div class="desktop-view">
+                    <iframe
+                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0v0UnUEZpvwKCGdriOSSWifnyIPlUAfva-JmXzAHnsJhelk4dLpxCeZAA9UYjroM61k3GuSLd7?gv=true"
+                        style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                </div>
+                <div class="mobile-view">
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0v0UnUEZpvwKCGdriOSSWifnyIPlUAfva-JmXzAHnsJhelk4dLpxCeZAA9UYjroM61k3GuSLd7?gv=true',
+                                    color: '#D50000',
+                                    label: 'Book an appointment',
+                                    target,
+                                });
+                            });
+                        })();
+                    </script>
                 </div>
             </div>
         </div>

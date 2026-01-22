@@ -81,7 +81,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(240, 165, 0, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(240, 165, 0, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -172,132 +172,109 @@ body {
     text-align: center;
 }
 
-/* ===== Booking Section ===== */
+/* ===== Tabbed Booking Section ===== */
 .booking {
     padding: 5rem 0;
     background-color: #121212;
 }
 
-.booking-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.calendar-column {
+.booking-tabs {
     display: flex;
-    align-items: stretch;
-}
-
-.calendar-placeholder {
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    padding: 2rem;
-    width: 100%;
-    min-height: 500px;
-    position: relative;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    border: 2px dashed #333;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
-.calendar-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 5px;
-}
-
-.calendar-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: rgba(26, 26, 26, 0.9);
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.calendar-overlay p {
-    font-size: 1.5rem;
-    color: #f0a500;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.calendar-overlay span {
-    color: #b0b0b0;
-    font-size: 0.9rem;
-}
-
-.form-column {
+.tab-link {
     background-color: #1a1a1a;
-    border-radius: 10px;
-    padding: 2rem;
-}
-
-.booking-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
     color: #e0e0e0;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 0.75rem;
-    background-color: #0a0a0a;
     border: 2px solid #333;
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
-    color: #e0e0e0;
+    cursor: pointer;
     font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
+.tab-link:hover {
+    border-color: #f0a500;
+    color: #f0a500;
+}
+
+.tab-link.active {
+    background-color: #f0a500;
+    color: #0a0a0a;
     border-color: #f0a500;
 }
 
-.form-group textarea {
-    resize: vertical;
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
 }
 
-.submit-button {
-    background-color: #f0a500;
-    color: #0a0a0a;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(240, 165, 0, 0.3);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-.submit-button:hover {
-    background-color: #ffc107;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(240, 165, 0, 0.5);
+.desktop-view {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
 }
+
+.mobile-view {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+/* Responsive Booking Logic */
+@media (min-width: 769px) {
+    .mobile-view {
+        display: none !important;
+    }
+
+    .desktop-view {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-view {
+        display: none !important;
+    }
+
+    .mobile-view {
+        display: flex !important;
+    }
+
+    .booking-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-link {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* Form Styles Removed */
 
 /* ===== Footer ===== */
 .footer {
